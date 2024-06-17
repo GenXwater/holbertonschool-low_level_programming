@@ -1,14 +1,9 @@
-/*
- * File: 5-prinft
- * Auth: GenXwater <8ksdfljsdf@outlook.com>
- */
-
 #include <stdio.h>
 
 /**
- * main - Printf with proper grammar, but the outcome is a piece of art,
+ * main - Entry point
  *
- * Return: Always 0.
+ * Return: Always 0 (ok)
  */
 int main(void)
 {

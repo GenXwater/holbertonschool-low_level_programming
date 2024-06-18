@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * main - Printf
+ *
+ * Return: 0 (ok)
+ */
 int main(void)
 
 {

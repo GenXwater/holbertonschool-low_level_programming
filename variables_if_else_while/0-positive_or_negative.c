@@ -1,13 +1,16 @@
-#include <stdio.h>
-
+#include <stdlib.h>
+#include <time.h>
 /**
- * main - Printf
- *
- * Return: 0 (ok)
+ * more headers goes there
+ * 
+ * betty style doc for function main goes there
  */
 int main(void)
 {
-        printf("Size of a char: %lu byte(s)\n", sizeof(char));
+	int n;
 
-        return (0);
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+	/* your code goes there */
+	return (0);
 }

@@ -2,10 +2,11 @@
 #include <stdio.h>
 #include <time.h>
 /**
- * main is ok
+ * main - Printf
  *
  * Return: 0 (ok)
  */
+
 int main(void)
 {
 	int n;

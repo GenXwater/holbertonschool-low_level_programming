@@ -9,7 +9,9 @@
 
 int main(void)
 {
-	for (char first_letter_low = 'a'; first_letter_low <= 'z'; first_letter_low++)
+	char (first_letter_low)
+	
+	for (first_letter_low = 'a'; first_letter_low <= 'z'; first_letter_low++)
 
 		putchar(first_letter_low);
 		putchar('\n');

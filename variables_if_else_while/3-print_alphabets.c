@@ -1,13 +1,24 @@
+#include <stdlib.h>
 #include <stdio.h>
-
+#include <time.h>
 /**
  * main - Printf
  *
  * Return: 0 (ok)
  */
+
 int main(void)
 {
-        printf("Size of a char: %lu byte(s)\n", sizeof(char));
+        char (c);
+
+        for (c = 'a'; c <= 'z'; c++)
+
+                putchar(c);
+
+	for (c = 'A'; c <= 'Z'; c++)
+
+		putchar(c);
+	putchar('\n');
 
         return (0);
 }

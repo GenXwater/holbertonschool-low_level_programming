@@ -1,13 +1,19 @@
+#include <stdlib.h>
 #include <stdio.h>
-
+#include <time.h>
 /**
  * main - Printf
  *
  * Return: 0 (ok)
  */
+
 int main(void)
 {
-        printf("Size of a char: %lu byte(s)\n", sizeof(char));
+	int (n);
 
-        return (0);
+	for (n = 0; n <= 15; n++)
+		printf("%d", n);
+	printf("\n");
+
+	return (0);
 }

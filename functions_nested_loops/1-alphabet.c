@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * main - use new function
+ * main - _printf
  *
- * Return: (0) Always
+ * Return: 0 (ok)
  */
 
 void print_alphabet(void)

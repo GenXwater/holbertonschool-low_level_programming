@@ -1,29 +1,28 @@
 #include "main.h"
 
 /**
- * print_square - prints a square, followed by a new line
- * If size is 0 or less, the function should print only a new line
- *
- * Return: 0 (ok)
+ * print_square - prints a square, with charactere #
+ * @size: Taille du carré
  */
 
 void print_square(int size)
 {	
 	int row, square;
 
+	if (size <= 0)
 	{
-	for (row = 0; row < size; row++)
-		{
-		for (square = 0; square < size; square++)
-			{
-			_putchar('#');
-			}
 		_putchar('\n');
-		}
 	}
 
-	if (size > 0)
+	else
 	{
-		_putchar('\n');
+		for (row = 0; row < size; row++)
+		{
+			for (square = 0; square < size; square++)
+			{
+				_putchar('#');
+			}
+			_putchar('\n');
+		}
 	}
 }

@@ -5,7 +5,7 @@
 /**
  * main - Entry point
  *
- * Description: Prints numbers from 0 to 100, replacing multiples of 3 with "Fizz"
+ * Description: Prints numbers from 0 to 100 replacing multiples of 3 with Fizz
  *              and multiples of 5 with "Buzz".
  *
  * Return: Always 0 (ok)
@@ -20,7 +20,7 @@ int main(void)
 		if (n % 3 == 0 && n % 5 == 0)
 		{
 			printf("FizzBuzz ");
-		}		
+		}
 		else if (n % 3 == 0)
 		{
 			printf("Fizz ");
@@ -29,11 +29,11 @@ int main(void)
 		{
 			if (n == 100)
 			{
-				printf ("Buzz");
+				printf("Buzz");
 			}
 			else
 			{
-				printf ("Buzz ");
+				printf("Buzz ");
 			}
 		}
 		else

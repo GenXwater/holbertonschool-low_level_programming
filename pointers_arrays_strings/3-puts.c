@@ -2,8 +2,7 @@
 
 /**
  * _puts - prints a  string, followed by a new line, to sdtout
- *
- * Return: 
+ *@str: Pointeur vers la chaine de caractères à afficher.
  */
 
 void _puts(char *str)

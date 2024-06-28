@@ -10,21 +10,14 @@
 
 void print_rev(char *s)
 {
-	int longueur = 0;
-	int revers;
+	int revers, longueur = 0;
 
-	char *start = s;
-
-
-	while (*s != '\0')
+	while (s[longueur] != '\0')
 	{
 		longueur++;
-		s++;
 	}
 
-	s = start;
-
-	for (revers = longueur - 1; revers >= 0; revers--)
+	for (revers = longueur; revers >= 0; revers--)
 	{
 		_putchar(s[revers]);
 	}

@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_array - prints n elements of an array of integers
- * @a: array of integers
- * @n: number of elements to print
+ * _strcpy - copies the string pointed to src from dest
+ * @src: contient et incrémente, puis copie dans dest
+ * @dest: recopie les valeurs de src, et assurer le final par '\0'
  *
- * Return: void
+ * Return: dest (ok)
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -18,5 +18,5 @@ char *_strcpy(char *dest, char *src)
 	}
 	dest[i] = '\0';
 
-	return dest;
+	return (dest);
 }

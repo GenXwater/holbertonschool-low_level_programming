@@ -1,47 +1,36 @@
 #include "main.h"
 
 /**
- * cap_string - Met en majuscule la première lettre de chaque mot d'une chaîne.
- * @str: La chaîne de caractères à modifier.
+ * cap_string - capitalizes all words of a string
+ * @s: string to be capitalized
  *
- * Return: Un pointeur vers la chaîne modifiée.
+ * Return: pointer to the changed string
  */
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int i = 0;
-	int capitalize_next = 1;
+	int i, j;
+	char n[] = " \t\n,;.!?\"(){}";
+	int num_separators = 13; /** Nombre de séparateurs */
 
-	/* Liste des séparateurs de mots */
-	char separators[] = " \t\n,;.!?\"(){}";
-
-	while (str[i] != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		/* Si le caractère actuel est un séparateur, on met capitalize_next à 1 */
-		int j = 0;
-		while (separators[j] != '\0')
+		/** Si c'est le premier caractère et c'est une minuscule, le convertir en majuscule */
+		if (i == 0 && s[i] >= 'a' && s[i] <= 'z')
+			s[i] -= 32;
+
+		/** Parcourir tous les séparateurs */
+		for (j = 0; j < num_separators; j++)
 		{
-			if (str[i] == separators[j])
+			if (s[i] == n[j])
 			{
-				capitalize_next = 1;
-				break;
+				/** Si le caractère suivant est une minuscule, le convertir en majuscule */
+				if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
+				{
+					s[i + 1] -= 32;
+				}
 			}
-			j++;
 		}
-
-		/* Si le caractère actuel doit être capitalisé */
-		if (capitalize_next && str[i] >= 'a' && str[i] <= 'z')
-		{
-			str[i] = str[i] - ('a' - 'A');
-			capitalize_next = 0;
-		}
-		/* Si le caractère actuel n'est pas une lettre */
-		else if (str[i] >= 'A' && str[i] <= 'Z')
-		{
-			capitalize_next = 0;
-		}
-
-		i++;
 	}
 
-	return str;
+	return (s);
 }

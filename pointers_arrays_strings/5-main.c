@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 /**
- * main - check the code
+ * main - Teste la fonction string_toupper.
  *
- * Return: Always 0.
+ * Return: Toujours 0.
  */
 int main(void)
 {
@@ -16,3 +16,4 @@ int main(void)
 	printf("%s", str);
 	return (0);
 }
+

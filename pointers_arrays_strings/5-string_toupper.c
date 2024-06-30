@@ -1,22 +1,21 @@
-#include "main.h"
-
 /**
- * strig_toupper - Convertit toutes les lettres min d'une chaîne en maj
+ * string_toupper - Convert ttes lettres minuscules d'un string en majuscules
  * @str: La chaîne à convertir.
  *
- * Return: Pointeur vers la chaîne modifiée.
+ * Return: Un pointeur vers la chaîne convertie.
  */
-char *strig_toupper(char *str)
+char *string_toupper(char *str)
 {
-	char *ptr = str; /** Pointeur pour parcourir la chaine */
+	char *ptr = str;
 
-	while (*ptr != '\0')
+	while (*ptr)
 	{
 		if (*ptr >= 'a' && *ptr <= 'z')
 		{
-			*ptr = *ptr - 'a' + 'A';
+			*ptr = *ptr - ('a' - 'A');
 		}
 		ptr++;
 	}
+
 	return (str);
 }

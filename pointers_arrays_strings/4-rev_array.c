@@ -3,7 +3,7 @@
  * @a: Le tableau d'entiers à inverser.
  * @n: Le nombre d'éléments dans le tableau.
  *
- * Description: Cette fonction inverse l'ordre des éléments dans le tableau @a.
+ * Description: Fonction inverse l'ordre ds éléments dans le tableau @a.
  *              Elle ne retourne rien.
  */
 void reverse_array(int *a, int n)

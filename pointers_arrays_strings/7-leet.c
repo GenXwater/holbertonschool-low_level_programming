@@ -1,8 +1,8 @@
 /**
- * leet - Encodes a string into leet spelling.
- * @s: string to process
+ * leet -  encodes a string into 1337
+ * @s: remplace caractère donné par un chiffre
  *
- * Return: the leeted string
+ * Return: s (ok)
  */
 char *leet(char *s)
 {

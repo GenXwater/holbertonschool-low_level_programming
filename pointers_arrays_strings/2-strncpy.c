@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strncpy - Copie au plus n caractères de la chaîne src dans la chaîne dest.
+ * _strncpy - Copie au plus n caractères de la chaîne src in chaîne dest.
  * @dest: Chaîne de destination où la copie sera effectuée.
  * @src: Chaîne source à copier dans dest.
  * @n: Nombre maximal de caractères à copier de src à dest.
@@ -25,6 +25,6 @@ char *_strncpy(char *dest, char *src, int n)
 		i++;
 	}
 
-	return dest;
+	return (dest);
 }
 

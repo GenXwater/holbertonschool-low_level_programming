@@ -14,7 +14,7 @@ char *cap_string(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		/** Si c'est le premier caractère et c'est une minuscule, le convertir en majuscule */
+		/** Si c'est le 1er caract et c'est une min, le convertir en maj */
 		if (i == 0 && s[i] >= 'a' && s[i] <= 'z')
 			s[i] -= 32;
 
@@ -23,7 +23,7 @@ char *cap_string(char *s)
 		{
 			if (s[i] == n[j])
 			{
-				/** Si le caractère suivant est une minuscule, le convertir en majuscule */
+				/** Si le caract suivant est une min, le convertir en maj */
 				if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
 				{
 					s[i + 1] -= 32;

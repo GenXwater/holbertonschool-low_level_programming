@@ -10,12 +10,12 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	/** 
+	/**
 	 * result - pointeur vers le début de la chaîne de destination
 	 */
 	char *result = dest;
 
-	/** 
+	/**
 	 * Boucle pour atteindre la fin de dest
 	 */
 	while (*dest != '\0')
@@ -23,7 +23,7 @@ char *_strcat(char *dest, char *src)
 		dest++;
 	}
 
-	/** 
+	/**
 	 * Boucle pour copier les caractères de src à la fin de dest
 	 */
 	while (*src != '\0')
@@ -33,13 +33,13 @@ char *_strcat(char *dest, char *src)
 		src++;
 	}
 
-	/** 
+	/**
 	 * Ajout du caractère nul de fin à la nouvelle chaîne
 	 */
 	*dest = '\0';
 
-	/** 
+	/**
 	 * Retourne le pointeur vers la chaîne de destination originale
 	 */
-	return result;
+	return (result);
 }

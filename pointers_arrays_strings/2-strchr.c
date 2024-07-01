@@ -16,7 +16,7 @@ char *_strchr(char *s, char c)
 	{
 		if (*s == c)
 		{
-			return (s); /** Retourne le pointeur vers la première occurrence de c dans s */
+			return (s); /** Retourne le pointeur vers la 1ee occurrence de c dans s */
 		}
 		s++; /** Passe au caractère suivant dans la chaîne s */
 	}

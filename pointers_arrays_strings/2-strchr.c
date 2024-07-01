@@ -1,5 +1,5 @@
+#include <stddef.h>
 #include "main.h"
-#include <stddef.h>  /** Pour NULL */
 
 /**
  * _strchr - Locates the first occurrence of a character in a string
@@ -12,15 +12,19 @@
 
 char *_strchr(char *s, char c)
 {
-	while (*s != '\0')
+	int i = 0;
+
+	while (s[i] != 0)
 	{
-		if (*s == c)
+		if (s[i] == c)
 		{
-			return (s); /** Retourne le pointeur vers la 1ee occurrence de c dans s */
+			return (s + i);
 		}
-		s++; /** Passe au caractère suivant dans la chaîne s */
+		i++;
 	}
-
-	return (NULL); /** Retourne NULL si c n'est pas trouvé dans s */
+	if (c == '\0')
+	{
+		return (s + i);
+	}
+	return (0);
 }
-

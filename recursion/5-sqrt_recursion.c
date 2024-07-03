@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * _sqrt_helper - aide à trouver la racine carrée par essais successifs.
+ * find_carre -  trouve le carré d'un nombre par essais successifs
  * @n: le nombre dont on veut calculer la racine carrée.
  * @i: l'essai courant pour trouver la racine carrée.
  *
- * Return: la racine carrée de n, ou -1 si n n'a pas de racine carrée naturelle.
+ * Return: la racine carrée de n, ou -1 si n n'a pas de racine² naturelle.
  */
 int find_carre(int n, int i)
 {
@@ -25,7 +25,7 @@ int find_carre(int n, int i)
  * _sqrt_recursion - retourne la racine carrée naturelle d'un nombre.
  * @n: le nombre dont on veut calculer la racine carrée.
  *
- * Return: la racine carrée de n, ou -1 si n n'a pas de racine carrée naturelle.
+ * Return: la racine carrée de n, ou -1 si n n'a pas de racine² naturelle.
  */
 int _sqrt_recursion(int n)
 {

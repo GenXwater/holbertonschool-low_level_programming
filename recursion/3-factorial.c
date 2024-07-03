@@ -3,9 +3,9 @@
 /**
  * factorial - function that returns the factoral of a given number
  *
- * @n: if n is lower 0 return -1
+ * @n: le nombre dont on veut retourner le factoriel
  *
- * return n * factorial
+ * return: le factoriel de n
  */
 int factorial(int n)
 {

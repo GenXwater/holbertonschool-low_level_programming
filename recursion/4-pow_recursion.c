@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _pow_recursion : return the power y at x
+ * _pow_recursion - return the power y at x
  *
- * @x: the number at puissancer
+ * @x: la base
  * @y: the power
  *
  * Return: -1 if y is lower 0, else return x power y

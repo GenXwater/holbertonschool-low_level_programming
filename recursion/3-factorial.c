@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
- * factorial - function that returns the factoral of a given number
+ * factorial - retourne le factoriel d'un nombre donné.
+ * @n: le nombre dont on veut calculer le factoriel.
  *
- * @n: le nombre dont on veut retourner le factoriel
- *
- * return: le factoriel de n
+ * Return: le factoriel de n
+ * ou -1 si n est inférieur à 0 pour indiquer une erreur.
  */
+
 int factorial(int n)
 {
 	if (n < 0)

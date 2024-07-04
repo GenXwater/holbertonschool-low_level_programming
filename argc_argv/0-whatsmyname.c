@@ -1,20 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
- * création d'un fichier c avec la variable argv et argc
- *
+ * main - Prints the name of the program followed by a new line.
+ * @argc: The number of command-line arguments (not used in this program).
+ * @argv: An array of strings representing the command-line arguments.
+ * 
+ * Return: 0 on success.
  */
-
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	if(argc != 3)
-	{
-		fprintf(stderr, "Format : programme <IP> <port>\n");
-		exit(EXIT_FAILURE);
-	}
-
-	printf("Connexion au serveur %s en cours... (port %s)\n",
-			argv[1], argv[2]);
-	return (0);
+	(void)argc;
+	printf("%s\n", argv[0]);
+	return 0;
 }
+

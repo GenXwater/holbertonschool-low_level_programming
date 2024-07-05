@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		printf("Error: You need to provide exactly two arguments.\n");
+		printf("Error\n");
 		return 1;
 	}
 

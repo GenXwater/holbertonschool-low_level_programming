@@ -9,26 +9,29 @@
  */
 int main(int argc, char *argv[])
 {
+	int i;
+	int num1 = 0;
+	int num2 = 0;
+	int result;
+
+
 	if (argc != 3)
 	{
 		printf("Error: You need to provide exactly two arguments.\n");
 		return 1;
 	}
 
-	int num1 = 0;
-	int num2 = 0;
-
-	for (int i = 0; argv[1][i] != '\0'; i++)
+	for (i = 0; argv[1][i] != '\0'; i++)
 	{
 		num1 = num1 * 10 + (argv[1][i] - '0');
 	}
 
-	for (int i = 0; argv[2][i] != '\0'; i++)
+	for (i = 0; argv[2][i] != '\0'; i++)
 	{
 		num2 = num2 * 10 + (argv[2][i] - '0');
 	}
 
-	int result = num1 * num2;
+	result = num1 * num2;
 
 	printf("%d\n", result);
 

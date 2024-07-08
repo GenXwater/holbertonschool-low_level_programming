@@ -11,14 +11,18 @@
 char *_strdup(char *str)
 {
 	char *copie;
-	unsigned int len;
+	unsigned int len = 0;
+	unsigned int i = 0;
 
 	if (str == NULL)
 	{
 		return (NULL);
 	}
 
-	len = strlen(str);
+	while (str[len] != '\0')
+	{
+		len++;
+	}
 
 	copie = malloc((len + 1) * sizeof(char));
 
@@ -27,7 +31,15 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	strcpy(copie, str);
+	while (i < len)
+	{
+		copie[i] = str[i];
+		i++;
+	}
 
+	/** Ajouter le caractère '\0' */
+	copie[len] = '\0';
+
+	/** Renvoi le pointuer vers la nouvelle chaine */
 	return (copie);
 }

@@ -11,9 +11,7 @@
  * Return: A pointer to the array
  * NULL si c'est un echec ou si ma size est 0
  */
-char *create_array(unsigned int size, char c)0-create_array.c:15:1: error: expected identifier or ‘(’ before ‘{’ token
-   15 | {
-      | ^
+char *create_array(unsigned int size, char c)
 {
 	char *array;
 	unsigned int i;

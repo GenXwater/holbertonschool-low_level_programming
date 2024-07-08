@@ -2,11 +2,11 @@
 #include <string.h>
 
 /**
- * _strup - eturns a pointer to a newly allocated space in memory
+ * _strdup - eturns a pointer to a newly allocated space in memory
  * which contains a copy of the string given as a parameter.
  * @str: la chaine à dupliquer
  * Return: un pointeur vers la chaine dupliquée
- * 	ou NULL si la mémoire disponible est insuffisante.
+ * ou NULL si la mémoire disponible est insuffisante.
  */
 char *_strdup(char *str)
 {

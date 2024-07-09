@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * free_grid - Libère la mémoire allouée pour un tableau 2D d'entiers.

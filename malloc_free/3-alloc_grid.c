@@ -53,4 +53,3 @@ int **alloc_grid(int width, int height)
 	}
 	return (grid); /** Retour du pointeur vr le tableau 2D alloué */
 }
-

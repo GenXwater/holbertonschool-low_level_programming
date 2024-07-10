@@ -9,7 +9,7 @@
  * Description: Cette fonction crée un tableau d'entiers qui contient ttes les
  *              valeurs de min (inclus) à max (inclus), triées de min à max
  *              Si min est supérieur à max, la fonction renvoie NULL.
- *              Si l'allocation de mémoire échoue, la fonction 
+ *              Si l'allocation de mémoire échoue, la fonction
  *              renvoie également NULL.
  *
  * Return: Un pointeur vers le nouveau tableau alloué

@@ -1,32 +1,34 @@
 #include "dog.h"
 #include <stdlib.h>
-#include <string.h>
 
 /**
- * new_dog - Crée un nouveau chien.
- * @name: Le nom du chien.
- * @age: L'âge du chien.
- * @owner: Le nom du propriétaire du chien.
+ * new_dog - Creates a new dog.
+ * @name: Name of the dog.
+ * @age: Age of the dog.
+ * @owner: Owner of the dog.
  *
- * Return: Un pointeur vers la nouvelle structure allouée,
- * ou NULL en cas d'échec.
+ * Return: Pointer to the new allocated structure
+ * or NULL on failure.
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog_ptr;
-	int i;
+	int i, name_len, owner_len;
 
 	new_dog_ptr = malloc(sizeof(dog_t));
 	if (new_dog_ptr == NULL)
 		return (NULL);
 
-	new_dog_ptr->name = malloc(strlen(name) + 1);
+	for (name_len = 0; name[name_len] != '\0'; name_len++) {}
+	new_dog_ptr->name = malloc(name_len + 1);
 	if (new_dog_ptr->name == NULL)
 	{
 		free(new_dog_ptr);
 		return (NULL);
 	}
-	new_dog_ptr->owner = malloc(strlen(owner) + 1);
+
+	for (owner_len = 0; owner[owner_len] != '\0'; owner_len++) {}
+	new_dog_ptr->owner = malloc(owner_len + 1);
 	if (new_dog_ptr->owner == NULL)
 	{
 		free(new_dog_ptr->name);
@@ -46,4 +48,3 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	return (new_dog_ptr);
 }
-

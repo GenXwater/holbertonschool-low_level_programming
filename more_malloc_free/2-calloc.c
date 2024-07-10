@@ -20,13 +20,13 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *ptr; /** Déclare un pointeur vers la mémoire allouée */
 	unsigned int i; /** Déclare une variable pour la boucle */
+	
+	/** Calcule la taille totale de la mémoire à allouer */
+        unsigned int total_size = nmemb * size;
 
 	/** Vérifie si nmemb ou size est égal à 0 et renvoie NULL dans ce cas */
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-
-	/** Calcule la taille totale de la mémoire à allouer */
-	unsigned int total_size = nmemb * size;
 
 	/** Alloue de la mémoire pour le tbl d'éléments de taille spécifiée */
 	ptr = malloc(total_size);

@@ -7,7 +7,7 @@
  * @age: L'âge du chien.
  * @owner: Le nom du propriétaire du chien.
  */
-struct dog
+typedef struct dog dog_t
 {
 	char *name; /**< Le nom du chien */
 	float age; /**< L'âge du chien */

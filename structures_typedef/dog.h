@@ -2,7 +2,7 @@
 #define DOG_H
 
 /**
- * struct dog - Définit une nouvelle structure pour représenter un chien.
+ * struct dog_t - Définit une nouvelle structure pour représenter un chien.
  * @name: Le nom du chien.
  * @age: L'âge du chien.
  * @owner: Le nom du propriétaire du chien.
@@ -16,6 +16,7 @@ typedef struct dog_t
 
 void init_dog(dog_t *d, char *name, float age, char *owner);
 void print_dog(dog_t *d);
+dog_t *new_dog(char *name, float age, char *owner);
 
 #endif /* DOG_H */
 

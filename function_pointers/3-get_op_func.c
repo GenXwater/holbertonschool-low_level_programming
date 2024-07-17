@@ -1,15 +1,10 @@
 #include "3-calc.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-/**
- * get_op_func - execute the operation
- * @s: operator
- *
- * Return: the result or Error it falls within the scope of the calculation
- */
 int (*get_op_func(char *s))(int, int)
 {
-	op_t ops[] =
-	{
+	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
@@ -18,13 +13,11 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 	int i;
-	while (ops[i].op != NULL)
+	for (i = 0; ops[i].op != NULL; i++)
 	{
-		if (*ops[i].op == *s)
+		if (*s == *ops[i].op)
 			return (ops[i].f);
-		i++;
 	}
 	printf("Error\n");
 	exit(99);
 }
-

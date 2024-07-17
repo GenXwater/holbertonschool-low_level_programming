@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 4)
 	{
-		printf("Usage: %s num1 operator num2\n", argv[0]);
+		printf("Error");
 		return (98);
 	}
 

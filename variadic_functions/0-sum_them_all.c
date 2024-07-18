@@ -1,7 +1,7 @@
 #include <stdarg.h>
 
 /*
- * sum_them_all - for addition
+ * sum_them_all - Returns the sum of all its parameters
  * @n: arguments indéfini
  * Return: sum
  */
@@ -11,13 +11,13 @@ int sum_them_all(const unsigned int n, ...)
 	int sum = 0;
 	unsigned int i;
 
-	va_start (op, n);
+	va_start(op, n);
 	for (i = 0; i < n; i++)
 	{
-		sum += va_arg (op, int);
+		sum += va_arg(op, int);
 	}
-	
-	va_end (op);
+
+	va_end(op);
 
 	return (sum);
 }

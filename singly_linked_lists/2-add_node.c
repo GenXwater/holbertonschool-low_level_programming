@@ -4,7 +4,7 @@
 #include "lists.h"
 
 /**
- * add_node - Adds a new node at the end of a list_t list.
+ * add_node - Adds a new node at the beginning of a list_t list.
  * @head: Pointer to the head of the list.
  * @str: String to be duplicated and added to the new node.
  *
@@ -13,7 +13,6 @@
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *element;
-	list_t *temp;
 	size_t len = 0;
 
 	element = malloc(sizeof(*element));
@@ -29,29 +28,17 @@ list_t *add_node(list_t **head, const char *str)
 		exit(1);
 	}
 
+	/** Remplace _strlen */
 	for (len = 0; str[len] != '\0'; len++)
 	{
-		/** Remplace _strlen */
+		/** Rien à faire ici, juste compter les caractères */
 	}
 	element->len = len;
 
-	element->next = NULL;
+	/**-----------------------*/
 
-	temp = *head;
-
-	if (temp == NULL)
-	{
-		*head = element;
-	}
-	else
-	{
-		while (temp->next != NULL)
-		{
-			temp = temp->next;
-		}
-		temp->next = element;
-	}
+	element->next = *head;
+	*head = element;
 
 	return (*head);
 }
-

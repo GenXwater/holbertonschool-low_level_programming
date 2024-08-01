@@ -13,8 +13,9 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 
 	dlistint_t *last_temp;
 
-	if (head == NULL)
+	if (head == NULL || new_node == NULL)
 	{
+		free(new_node);
 		return (NULL);
 	}
 

@@ -12,6 +12,7 @@
  * @exit_code: Code de sortie.
  * @message: Message d'erreur à afficher.
  * @filename: Nom du fichier associé à l'erreur.
+ * NTM 
  */
 void error_exit(int exit_code, const char *message, const char *filename)
 {

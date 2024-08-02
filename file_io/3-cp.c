@@ -17,35 +17,6 @@ void handle_error(int error_code, const char *msg)
 }
 
 /**
- * copy_file_content - copy content from source file to destination file
- * @fd_source: file descriptor of the source file
- * @fd_dest: file descriptor of the destination file
- */
-void copy_file_content(int fd_source, int fd_dest)
-{
-	char buffer[BUFFER_SIZE];
-	ssize_t n_read, n_written;
-
-	while ((n_read = read(fd_source, buffer, BUFFER_SIZE)) > 0)
-	{
-		n_written = write(fd_dest, buffer, n_read);
-		if (n_written != n_read)
-		{
-			close(fd_source);
-			close(fd_dest);
-			handle_error(99, "Error: Can't write to file");
-		}
-	}
-
-	if (n_read == -1)
-	{
-		close(fd_source);
-		close(fd_dest);
-		handle_error(98, "Error: Can't read from file");
-	}
-}
-
-/**
  * main - program that copies the content of one file to another
  * @argc: number of arguments
  * @argv: array of arguments
@@ -54,6 +25,8 @@ void copy_file_content(int fd_source, int fd_dest)
 int main(int argc, char *argv[])
 {
 	int fd_source, fd_dest;
+	char buffer[BUFFER_SIZE];
+	ssize_t n_read, n_written;
 
 	if (argc != 3)
 	{
@@ -73,7 +46,23 @@ int main(int argc, char *argv[])
 		handle_error(99, "Error: Can't write to file");
 	}
 
-	copy_file_content(fd_source, fd_dest);
+	while ((n_read = read(fd_source, buffer, BUFFER_SIZE)) > 0)
+	{
+		n_written = write(fd_dest, buffer, n_read);
+		if (n_written != n_read)
+		{
+			close(fd_source);
+			close(fd_dest);
+			handle_error(99, "Error: Can't write to file");
+		}
+	}
+
+	if (n_read == -1)
+	{
+		close(fd_source);
+		close(fd_dest);
+		handle_error(98, "Error: Can't read from file");
+	}
 
 	if (close(fd_source) == -1)
 	{

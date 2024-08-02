@@ -34,7 +34,7 @@ void errors(int fd_s, int fd_d, char *argv[])
 int main(int argc, char *argv[])
 {
 	int fd_s, fd_d;
-	char buf[1024];
+	char buf[2048];
 	ssize_t nrd, nwr;
 
 	if (argc != 3)

@@ -1,77 +1,77 @@
 #include <stdio.h>
-#include <stddef.h>
-#include <sys/types.h>
+#include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdlib.h>
-
-#define BUFFER_SIZE 1685
 
 /**
- * error_exit - Affiche un message d'erreur et quitte avec un code donné.
- * @exit_code: Code de sortie.
- * @message: Message d'erreur à afficher.
- * @filename: Nom du fichier associé à l'erreur.
- * NTM 
+ * errors - handle errors
+ * @fd_s: source file descriptor
+ * @fd_d: destination file descriptor
+ * @argv: array of arguments
+ * Return: void
  */
-void error_exit(int exit_code, const char *message, const char *filename)
+void errors(int fd_s, int fd_d, char *argv[])
 {
-	dprintf(STDERR_FILENO, "%s %s\n", message, filename);
-	exit(exit_code);
+	if (fd_s == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	if (fd_d == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		close(fd_s);
+		exit(99);
+	}
 }
 
 /**
- * main - Programme pour copier le contenu d'un fichier vers un autre fichier.
- * @argc: Nombre d'arguments.
- * @argv: Tableau d'arguments.
- *
- * Return: 0 en cas de succès, sinon un code d'erreur.
- *
- * RAPPEL :
- * O_WRONLY : Ouvrir le fichier en écriture seule
- * O_CREAT : Créer le fichier s'il n'existe pas
- * O_TRUNC : Tronquer le fichier à une taille de 0 s'il existe déjà
- * S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH : Permissions rw-rw-r--
+ * main - program that copies the content of one file to another
+ * @argc: number of arguments
+ * @argv: array of arguments
+ * Return: 0 (Always)
  */
-
 int main(int argc, char *argv[])
 {
-	int file_from, file_to;
-	ssize_t n_read, n_written;
-	char buffer[BUFFER_SIZE];
+	int fd_s, fd_d;
+	char buf[1024];
+	ssize_t nrd, nwr;
 
-	/** Vérifier le nombre d'arguments */
 	if (argc != 3)
-		error_exit(97, "Usage: cp file_from file_to", "");
-
-	/** Ouvrir le fichier source en lecture seule */
-	file_from = open(argv[1], O_RDONLY);
-	if (file_from == -1)
-		error_exit(98, "Error: Can't read from file", argv[1]);
-
-	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC,
-			S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (file_to == -1)
-		error_exit(99, "Error: Can't write to", argv[2]);
-
-	/** Copier le contenu du fichier source vers le fichier de destination */
-	while ((n_read = read(file_from, buffer, BUFFER_SIZE)) > 0)
 	{
-		n_written = write(file_to, buffer, n_read);
-		if (n_written == -1)
-			error_exit(99, "Error: Can't write to", argv[2]);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
 	}
-
-	if (n_read == -1)
-		error_exit(98, "Error: Can't read from file", argv[1]);
-
-	/** Fermer les fichiers */
-	if (close(file_from) == -1)
-		error_exit(100, "Error: Can't close fd", argv[1]);
-
-	if (close(file_to) == -1)
-		error_exit(100, "Error: Can't close fd", argv[2]);
-
+	fd_s = open(argv[1], O_RDONLY);
+	fd_d = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	errors(fd_s, fd_d, argv);
+	while ((nrd = read(fd_s, buf, sizeof(buf))) > 0)
+	{
+		nwr = write(fd_d, buf, nrd);
+		if (nwr == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			close(fd_s);
+			close(fd_d);
+			exit(99);
+		}
+	}
+	if (nrd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		close(fd_s);
+		close(fd_d);
+		exit(98);
+	}
+	if (close(fd_s) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_s);
+		exit(100);
+	}
+	if (close(fd_d) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_d);
+		exit(100);
+	}
 	return (0);
 }
-

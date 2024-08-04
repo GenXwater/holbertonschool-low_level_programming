@@ -14,10 +14,13 @@
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
+	if (d != NULL)
+	{
 	/** Affecte la valeur de name au membre name de la structure */
 	d->name = name;
 	/** Affecte la valeur de age au membre age de la structure */
 	d->age = age;
 	/** Affecte la valeur de age au membre age de la structure */
 	d->owner = owner;
+	}
 }

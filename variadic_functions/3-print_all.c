@@ -1,51 +1,52 @@
+#include <stdarg.h>
+#include <stdio.h>
 #include "variadic_functions.h"
-
 /**
- * print_all - prints anything
- * @format: list of all arguments
- *
+ * print_all - variadic function that prints strings from different
+ * types using switch for converting them fr printing, followed by a new line
+ * @format: is a list of types of arguments passed to the function
  * Return: void
  */
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	int i = 0;
-	char *string, *sep;
+	va_list arglist;
+	int i = 0, j = 0;
+	char *chain, type;
 
-	va_start(args, format);
+	va_start(arglist, format);
 	while (format && format[i])
 	{
-		sep = ", ";
-		switch (format[i])
+		type = format[i];
+		if (type == 'c' || type == 'i' || type == 'f' || type == 's')
+
 		{
-			case 'c':
-				printf("%c", va_arg(args, int));
-				break;
+			if (j > 0)
+				printf(", ");
 
-			case 'i':
-				printf("%i", va_arg(args, int));
-				break;
-
-			case 'f':
-				printf("%f", va_arg(args, double));
-				break;
-
-			case 's':
-				string = va_arg(args, char *);
-				if (string == NULL)
-					string = "(nil)";
-
-				printf("%s", string);
-				break;
-
-			default:
-				sep = "";
-				break;
+			switch (type)
+			{
+				case 'c':
+					printf("%c", va_arg(arglist, int));
+					break;
+				case 'i':
+					printf("%d", va_arg(arglist, int));
+					break;
+				case 'f':
+					printf("%f", va_arg(arglist, double));
+					break;
+				case 's':
+					chain = va_arg(arglist, char*);
+					{
+						printf("%s", chain ? chain : "(nil)");
+					}
+					break;
+				default:
+					break;
+			}
+			j++;
 		}
-		if (format[i + 1] != '\0')
-			printf("%s", sep);
 		i++;
 	}
-	va_end(args);
+	va_end(arglist);
 	printf("\n");
 }
